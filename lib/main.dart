@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Comfortaa',
-        primarySwatch: Colors.orange,
+        primaryColor: const Color.fromARGB(255, 235, 155, 0),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: BaseScreen(),
