@@ -11,22 +11,22 @@ class CustomDrawer extends StatelessWidget {
           const DrawerTile(
             iconData: Icons.home,
             title: 'Inicio',
-            pagina: 0,
+            page: 0,
           ),
           const DrawerTile(
             iconData: Icons.list,
             title: 'Produtos',
-            pagina: 1,
+            page: 1,
           ),
           const DrawerTile(
             iconData: Icons.playlist_add_check,
             title: 'Meus Pedidos',
-            pagina: 2,
+            page: 2,
           ),
           const DrawerTile(
             iconData: Icons.add_location,
             title: 'Lojas',
-            pagina: 3,
+            page: 3,
           ),
         ],
       ),

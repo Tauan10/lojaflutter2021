@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:lojafinal/models/page_manager.dart';
+import 'package:provider/provider.dart';
 
 class DrawerTile extends StatelessWidget {
-  const DrawerTile({this.iconData, this.title, this.pagina});
+  const DrawerTile({this.iconData, this.title, this.page});
 
   final IconData iconData;
   final String title;
-  final int pagina;
+  final int page;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        debugPrint('TOquei $pagina');
+        context.read()<PageManeger>().setPage(page);
       },
       child: SizedBox(
         height: 60,
