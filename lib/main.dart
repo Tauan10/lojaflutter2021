@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lojafinal/screens/base/base_screens.dart';
 
-void main() async {
+void main() {
   runApp(MyApp());
 }
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: 'Comfortaa',
           primaryColor: const Color.fromARGB(255, 235, 155, 0),
-          scaffoldBackgroundColor: const Color.fromARGB(220, 235, 120, 0),
+          scaffoldBackgroundColor: const Color.fromARGB(2255, 235, 155, 0),
           visualDensity: VisualDensity.adaptivePlatformDensity,
           appBarTheme: const AppBarTheme(elevation: 0)),
       home: BaseScreen(),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class PageManeger {
   PageManeger(this._pageController);
 
+  // ignore: prefer_final_fields
   PageController _pageController;
 
   int page = 0;

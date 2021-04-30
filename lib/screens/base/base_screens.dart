@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lojafinal/common/custom_drawer/custom_drawer.dart';
 import 'package:lojafinal/models/page_manager.dart';
+import 'package:lojafinal/screens/login/login.screen.dart';
 import 'package:provider/provider.dart';
 
 class BaseScreen extends StatelessWidget {
@@ -13,20 +14,24 @@ class BaseScreen extends StatelessWidget {
       child: PageView(
         controller: pageController,
         children: <Widget>[
+          LoginScreen(),
           Scaffold(
             drawer: CustomDrawer(),
             appBar: AppBar(
-              title: const Text('Home'),
+              title: const Text("Home2"),
             ),
           ),
-          Container(
-            color: Colors.red,
+          Scaffold(
+            drawer: CustomDrawer(),
+            appBar: AppBar(
+              title: const Text("Home3"),
+            ),
           ),
-          Container(
-            color: Colors.black,
-          ),
-          Container(
-            color: Colors.blue,
+          Scaffold(
+            drawer: CustomDrawer(),
+            appBar: AppBar(
+              title: const Text("Home4"),
+            ),
           )
         ],
       ),
