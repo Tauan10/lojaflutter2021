@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lojafinal/helpers/validacao.dart';
+import 'package:lojafinal/models/gerenciador_user.dart';
+import 'package:lojafinal/models/user.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
@@ -69,8 +72,9 @@ class LoginScreen extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () {
                         if (formkey.currentState.validate()) {
-                          emailController.text;
-                          senhaController.text;
+                          context.read<UserManager>().signIn(User(
+                              email: emailController.text,
+                              senha: senhaController.text));
                         }
                       },
                       // ignore: prefer_const_constructors
