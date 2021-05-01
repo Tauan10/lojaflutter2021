@@ -9,8 +9,8 @@ import 'package:lojafinal/models/user.dart';
 class UserManager extends ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
-  bool _loading = false;
-  bool get loading => _loading;
+  bool _loading = false; // variavel privada "_"
+  bool get loading => _loading; // espondo variavel atraves do get
 
   Future<void> signIn({User user, Function onFail, Function onSuccess}) async {
     loading = true;
@@ -26,9 +26,10 @@ class UserManager extends ChangeNotifier {
       onFail(getErrorString(e.code));
     }
 
-    loading = false;
+    loading = false; // quando setar aqui vai chamar o loading abaixo
   }
 
+// estou setando a variavel atraves de um set
   set loading(bool value) {
     _loading = value;
     notifyListeners();
