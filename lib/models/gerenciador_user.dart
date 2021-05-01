@@ -7,7 +7,13 @@ import 'package:lojafinal/models/user.dart';
 // USER MANAGER
 // validaçao do firebase email e senha
 class UserManager extends ChangeNotifier {
+  // estou deixando privado porque nao vai chamar fora da classe UserMananger
+  UserManager() {
+    _loadCurrentUser();
+  }
   final FirebaseAuth auth = FirebaseAuth.instance;
+
+  FirebaseUser user;
 
   bool _loading = false; // variavel privada "_"
   bool get loading => _loading; // espondo variavel atraves do get
@@ -20,6 +26,8 @@ class UserManager extends ChangeNotifier {
       // ignore: unused_local_variable
       final AuthResult result = await auth.signInWithEmailAndPassword(
           email: user.email, password: user.senha);
+
+      this.user = result.user;
       onSuccess();
     } on PlatformException catch (e) {
       // ignore: avoid_print
@@ -32,6 +40,15 @@ class UserManager extends ChangeNotifier {
 // estou setando a variavel atraves de um set
   set loading(bool value) {
     _loading = value;
+    notifyListeners();
+  }
+
+  Future<void> _loadCurrentUser() async {
+    final FirebaseUser currentUser = await auth.currentUser();
+    if (currentUser != null) {
+      user = currentUser;
+    }
+
     notifyListeners();
   }
 }
