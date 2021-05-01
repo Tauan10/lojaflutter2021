@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  final GlobalKey<ScaffoldState> scaffoldMessengerKey =
+      GlobalKey<ScaffoldState>();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController senhaController = TextEditingController();
@@ -13,6 +15,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldMessengerKey,
       appBar: AppBar(
         title: const Text('Entrar'),
         centerTitle: true,
@@ -70,11 +73,23 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   height: 44,
                   child: ElevatedButton(
+                      // TODO: https://stackoverflow.com/questions/64995163/how-to-i-change-the-disabled-color-of-an-elevatedbutton
                       onPressed: () {
                         if (formkey.currentState.validate()) {
-                          context.read<UserManager>().signIn(User(
-                              email: emailController.text,
-                              senha: senhaController.text));
+                          context.read<UserManager>().signIn(
+                              user: User(
+                                  email: emailController.text,
+                                  senha: senhaController.text),
+                              //callback
+                              onFail: (e) {
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  content: Text('Falha ao entrar:$e'),
+                                ));
+                              },
+                              onSuccess: () {
+                                // TODO: FECHAR TELA DE LOGN
+                              });
                         }
                       },
                       // ignore: prefer_const_constructors
