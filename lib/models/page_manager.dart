@@ -4,7 +4,7 @@ class PageManeger {
   PageManeger(this._pageController);
 
   // ignore: prefer_final_fields
-  PageController _pageController;
+  final PageController _pageController;
 
   int page = 0;
 

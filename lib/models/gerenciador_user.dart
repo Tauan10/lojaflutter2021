@@ -9,10 +9,11 @@ import 'package:lojafinal/models/user.dart';
 class UserManager extends ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
-  bool loading = false;
+  bool _loading = false;
+  bool get loading => _loading;
 
   Future<void> signIn({User user, Function onFail, Function onSuccess}) async {
-    setLoading(true);
+    loading = true;
 
     // ignore: unused_local_variable
     try {
@@ -25,10 +26,11 @@ class UserManager extends ChangeNotifier {
       onFail(getErrorString(e.code));
     }
 
-    setLoading(false);
+    loading = false;
   }
 
-  void setLoading(bool value) {
-    loading = value;
+  set loading(bool value) {
+    _loading = value;
+    notifyListeners();
   }
 }
