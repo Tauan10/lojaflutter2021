@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lojafinal/models/gerenciador_user.dart';
 import 'package:lojafinal/screens/base/base_screens.dart';
+import 'package:lojafinal/screens/login/cadastro/cadastro_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: const Color.fromARGB(2255, 235, 155, 0),
             visualDensity: VisualDensity.adaptivePlatformDensity,
             appBarTheme: const AppBarTheme(elevation: 0)),
-        home: BaseScreen(),
+        home: CadastroScreen(),
       ),
     );
   }
