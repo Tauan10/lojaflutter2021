@@ -25,7 +25,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           const DrawerTile(
             iconData: Icons.add_location,
-            title: 'Lojas',
+            title: 'Endereços',
             page: 3,
           ),
         ],
