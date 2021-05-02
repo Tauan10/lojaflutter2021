@@ -20,8 +20,11 @@ class LoginScreen extends StatelessWidget {
         title: const Text('Entrar'),
         centerTitle: true,
         actions: [
+          // BOTAO PARA TROCA DE TELA ENTRE CADASTRO E LOGIN
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed('/signup');
+            },
             child: const Text(
               'CRIAR CONTA',
               style: TextStyle(fontSize: 14),

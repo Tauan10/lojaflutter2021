@@ -23,7 +23,16 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: const Color.fromARGB(2255, 235, 155, 0),
             visualDensity: VisualDensity.adaptivePlatformDensity,
             appBarTheme: const AppBarTheme(elevation: 0)),
-        home: CadastroScreen(),
+        initialRoute: '/base',
+        onGenerateRoute: (settings) {
+          switch (settings.name) {
+            case '/signup':
+              return MaterialPageRoute(builder: (_) => CadastroScreen());
+            case '/base':
+            default:
+              return MaterialPageRoute(builder: (_) => BaseScreen());
+          }
+        },
       ),
     );
   }
