@@ -25,9 +25,12 @@ class LoginScreen extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).pushReplacementNamed('/signup');
             },
+            style: ElevatedButton.styleFrom(
+              primary: const Color.fromARGB(255, 235, 155, 0),
+            ),
             child: const Text(
-              'CRIAR CONTA',
-              style: TextStyle(fontSize: 14),
+              'Criar conta',
+              style: TextStyle(fontSize: 14, color: Colors.black),
             ),
           )
         ],
