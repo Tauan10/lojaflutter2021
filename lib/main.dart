@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => UserManager(),
       child: MaterialApp(
-        title: 'Loja de Informatica',
+        title: 'Loja de Informatica 01',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             fontFamily: 'Comfortaa',
