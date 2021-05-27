@@ -42,14 +42,10 @@ class UserManager extends ChangeNotifier {
   Future<void> signUp({User user, Function onFail, Function onSuccess}) async {
     loading = true;
     try {
-      if (user.email != null && user.senha != null) {
-        final AuthResult result = await auth.createUserWithEmailAndPassword(
-            email: user.email, password: user.name);
+      final AuthResult result = await auth.createUserWithEmailAndPassword(
+          email: user.email, password: user.senha);
 
-        this.user = result.user;
-      } else {
-        onFail('Erro no codigo');
-      }
+      this.user = result.user;
 
       onSuccess();
     } on PlatformException catch (e) {
