@@ -48,7 +48,7 @@ class UserManager extends ChangeNotifier {
 
         this.user = result.user;
       } else {
-        onFail('Erro');
+        onFail('Erro no codigo');
       }
 
       onSuccess();
