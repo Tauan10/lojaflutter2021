@@ -54,6 +54,7 @@ class UserManager extends ChangeNotifier {
 
     loading = false;
   }
+  // TESTE DE PARA O GIT
 
 // estou setando a variavel atraves de um set
   set loading(bool value) {
