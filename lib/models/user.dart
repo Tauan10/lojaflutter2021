@@ -4,6 +4,7 @@ class User {
   String name;
   String email;
   String senha;
+  String nome;
 
   String confirmacaoSenha;
 }
