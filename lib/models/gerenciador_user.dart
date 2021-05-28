@@ -56,7 +56,7 @@ class UserManager extends ChangeNotifier {
     } on PlatformException catch (e) {
       onFail(getErrorString(e.code));
     }
-
+    // 27/05/2021
     loading = false;
   }
   // TESTE DE PARA O GIT
