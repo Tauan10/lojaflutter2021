@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -12,8 +13,9 @@ class UserManager extends ChangeNotifier {
     _loadCurrentUser();
   }
   final FirebaseAuth auth = FirebaseAuth.instance;
-
-  FirebaseUser user;
+  final Firestore firestore = Firestore.instance;
+  // Deixa facil 
+ User user;
 
   bool _loading = false; // variavel privada "_"
   bool get loading => _loading; // espondo variavel atraves do get
@@ -65,12 +67,15 @@ class UserManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> _loadCurrentUser() async {
-    final FirebaseUser currentUser = await auth.currentUser();
-    if (currentUser != null) {
-      user = currentUser;
+  Future<void> _loadCurrentUser(FirebaseUser firebaseUser) async {
+    final FirebaseUser currentUser = firebaseUser ?? await auth.currentUser();
+    if (currentUser != null)  {
+      final DocumentSnapshot docUser = await firestore.collection('users').document(currentUser.uid).get();
+
+      user = User.fromDocument(docUser);
+      notifyListeners();
     }
 
-    notifyListeners();
+    
   }
 }
