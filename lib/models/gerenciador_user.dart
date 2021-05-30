@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:lojafinal/helpers/firebase_erros.dart';
 import 'package:lojafinal/models/user.dart';
 
+
+// SISTEMA DE CADASTRO E LOGIN FUNCIONANDO 
 // USER MANAGER
 // validaçao do firebase email e senha
 class UserManager extends ChangeNotifier {
@@ -19,6 +21,7 @@ class UserManager extends ChangeNotifier {
 
   bool _loading = false; // variavel privada "_"
   bool get loading => _loading; // espondo variavel atraves do get
+  bool get isLoggedIn => user != null;
 
   Future<void> signIn({User user, Function onFail, Function onSuccess}) async {
     loading = true;
@@ -28,8 +31,9 @@ class UserManager extends ChangeNotifier {
       // ignore: unused_local_variable
       final AuthResult result = await auth.signInWithEmailAndPassword(
           email: user.email, password: user.senha);
-
-      this.user = result.user;
+      
+      await _loadCurrentUser(firebaseUser: result.user);
+  
       onSuccess();
     } on PlatformException catch (e) {
       // ignore: avoid_print
@@ -50,6 +54,7 @@ class UserManager extends ChangeNotifier {
 
 
       user.id =result.user.uid;
+      this.user = user;
 
       await user.saveData();
       onSuccess();
@@ -67,7 +72,7 @@ class UserManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> _loadCurrentUser(FirebaseUser firebaseUser) async {
+  Future<void> _loadCurrentUser({FirebaseUser firebaseUser}) async {
     final FirebaseUser currentUser = firebaseUser ?? await auth.currentUser();
     if (currentUser != null)  {
       final DocumentSnapshot docUser = await firestore.collection('users').document(currentUser.uid).get();
