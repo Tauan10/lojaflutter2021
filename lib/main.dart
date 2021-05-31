@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lojafinal/models/gerenciador_user.dart';
 import 'package:lojafinal/screens/base/base_screens.dart';
 import 'package:lojafinal/screens/login/cadastro/cadastro_screen.dart';
+import 'package:lojafinal/screens/login/login.screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -27,6 +28,8 @@ class MyApp extends StatelessWidget {
         initialRoute: '/base',
         onGenerateRoute: (settings) {
           switch (settings.name) {
+            case '/login':
+              return MaterialPageRoute(builder: (_) => LoginScreen());
             case '/signup':
               return MaterialPageRoute(builder: (_) => CadastroScreen());
             case '/base':
