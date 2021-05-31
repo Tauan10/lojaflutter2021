@@ -7,6 +7,7 @@ class User {
     id = document.documentID;
     name = document.data['name']as String ;
     email = document.data['email']as String ;
+
   }
   String id;
   String name;
@@ -16,7 +17,7 @@ class User {
   String confirmacaoSenha;
 
   DocumentReference get firestoreRef => 
-  Firestore.instance.document('user/$id');
+  Firestore.instance.document('users/$id');
 
 
   Future<void> saveData()async{

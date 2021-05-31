@@ -25,12 +25,14 @@ class CustomDrawerHeader extends StatelessWidget {
               ),
             ),
             Text(
-              'Seja Bem vindo,${userManager.user?.name ?? ' '}',
+              'Ola,${userManager.user?.name ?? ''}',
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
+              // ignore: prefer_const_constructors
               style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+                
               ),
             ),
             GestureDetector(
@@ -38,7 +40,7 @@ class CustomDrawerHeader extends StatelessWidget {
                 if(userManager.isLoggedIn){
                   // TODO: SAIR
                 }else{
-                  Navigator.of(context).pushNamed('/login');
+                  Navigator.of(context).pushNamed('/signup');
                   // Se eu nao tiver logado aqui vou para minha tela de login
                 }
               },

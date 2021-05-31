@@ -40,7 +40,7 @@ class CadastroScreen extends StatelessWidget {
                       return 'Preencha seu nome completo';
                     return null;
                   },
-                  onSaved: (name) => user.name,
+                  onSaved: (name) => user.name = name,
                 ),
                 const SizedBox(
                   height: 16,

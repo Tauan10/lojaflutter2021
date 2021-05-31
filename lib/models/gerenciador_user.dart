@@ -57,12 +57,18 @@ class UserManager extends ChangeNotifier {
       this.user = user;
 
       await user.saveData();
+      // Metodo de salvar os dados pessoais dos usuarios 
       onSuccess();
     } on PlatformException catch (e) {
       onFail(getErrorString(e.code));
     }
     // 27/05/2021
     loading = false;
+  }
+  void signOut(){
+    auth.signOut();
+    user = null;
+    notifyListeners();
   }
   // TESTE DE PARA O GIT
 
