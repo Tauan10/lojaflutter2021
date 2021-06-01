@@ -26,7 +26,7 @@ class DrawerTile extends StatelessWidget {
               child: Icon(
                 iconData,
                 size: 32,
-                color: curPage == page ? primaryColor : Colors.grey[700],
+                color: curPage == page ? primaryColor : Colors.black,
               ),
             ),
             Text(
@@ -34,7 +34,7 @@ class DrawerTile extends StatelessWidget {
               // ignore: prefer_const_constructors
               style: TextStyle(
                 fontSize: 16,
-                color: curPage == page ? primaryColor : Colors.grey[700],
+                color: curPage == page ? primaryColor : Colors.black,
               ),
             )
           ],

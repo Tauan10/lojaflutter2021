@@ -32,7 +32,7 @@ class CustomDrawerHeader extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        foreground: Paint()..color = Colors.orange[400]),
+                        foreground: Paint()..color = Colors.black),
                   ),
                   GestureDetector(
                     onTap: () {
@@ -48,7 +48,8 @@ class CustomDrawerHeader extends StatelessWidget {
                           ? 'Sair'
                           : 'Entre ou cadastra-se >',
                       style: TextStyle(
-                        color: Theme.of(context).primaryColor,
+                        color: Colors.black,
+                        //color: Theme.of(context).primaryColor,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
