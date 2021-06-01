@@ -14,11 +14,12 @@ class BaseScreen extends StatelessWidget {
       child: PageView(
         controller: pageController,
         children: <Widget>[
-          LoginScreen(),
+          
+          //LoginScreen(),
           Scaffold(
             drawer: CustomDrawer(),
             appBar: AppBar(
-              title: const Text("Home2"),
+              title: const Text("Home"),
             ),
           ),
           Scaffold(

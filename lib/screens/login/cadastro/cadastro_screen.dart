@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lojafinal/helpers/validacao.dart';
+import 'package:lojafinal/models/gerenciador_user.dart';
 import 'package:lojafinal/models/user.dart';
+import 'package:provider/provider.dart';
 
 class CadastroScreen extends StatelessWidget {
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
@@ -38,7 +40,7 @@ class CadastroScreen extends StatelessWidget {
                       return 'Preencha seu nome completo';
                     return null;
                   },
-                  onSaved: (name) => user.name,
+                  onSaved: (name) => user.name = name,
                 ),
                 const SizedBox(
                   height: 16,
@@ -104,10 +106,24 @@ class CadastroScreen extends StatelessWidget {
                                 .showSnackBar(SnackBar(
                               // ignore: prefer_const_constructors
                               content: const Text('Senhas não coincidem'),
+                              backgroundColor: Colors.red,
                               //Mensagem
                             ));
                             return;
                           }
+
+                          context.read<UserManager>().signUp(
+                              user: user,
+                              onSuccess: () {
+                                Navigator.of(context).pop();
+                              },
+                              onFail: (e) {
+                                scaffoldMessengerKey.currentState
+                                    .showSnackBar(SnackBar(
+                                  content: Text('Falha ao cadastrar: $e'),
+                                  backgroundColor: Colors.red,
+                                ));
+                              });
                         }
                       },
                       // ignore: sort_child_properties_last
