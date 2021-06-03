@@ -103,7 +103,7 @@ class CadastroScreen extends StatelessWidget {
                     height:
                         44, //-------------BUTOON --EXEMPLO-------------------
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: userManager.loading ? null : () {
                         if (formkey.currentState.validate()) {
                           formkey.currentState.save();
                           if (user.senha != user.confirmacaoSenha) {
@@ -118,7 +118,7 @@ class CadastroScreen extends StatelessWidget {
                             return;
                           }
 
-                          context.read<UserManager>().signUp(
+                          userManager.signUp(
                               user: user,
                               onSuccess: () {
                                 Navigator.of(context).pop();
@@ -132,8 +132,11 @@ class CadastroScreen extends StatelessWidget {
                               });
                         }
                       },
-                      // ignore: sort_child_properties_last
-                      child: const Text(
+              
+                      child: userManager.loading ? CircularProgressIndicator(
+                        // ignore: prefer_const_constructors
+                        valueColor: AlwaysStoppedAnimation(Colors.white),
+                      ) : const Text(
                         'Criar conta',
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
