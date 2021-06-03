@@ -9,8 +9,11 @@ class CustomDrawer extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
+            // ignore: prefer_const_constructors
             decoration: BoxDecoration(
-                gradient: LinearGradient(
+              // ignore: prefer_const_constructors
+              gradient: LinearGradient(
+              // ignore: prefer_const_literals_to_create_immutables
               colors: [const Color.fromARGB(255, 255, 155, 0), Colors.white],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -19,6 +22,7 @@ class CustomDrawer extends StatelessWidget {
           ListView(
             children: <Widget>[
               CustomDrawerHeader(),
+              const Divider(),
               const DrawerTile(
                 iconData: Icons.home,
                 title: 'Inicio',

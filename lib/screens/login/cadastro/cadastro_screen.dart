@@ -24,11 +24,14 @@ class CadastroScreen extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 16),
           child: Form(
             key: formkey,
-            child: ListView(
+            child: Consumer<UserManager>(
+              builder: (_, userManager,__){
+                return ListView(
               padding: const EdgeInsets.all(16),
               shrinkWrap: true,
               children: <Widget>[
                 TextFormField(
+                  enabled: !userManager.loading,
                   decoration: const InputDecoration(hintText: 'Nome Completo'),
                   // ignore: missing_return
                   validator: (name) {
@@ -46,6 +49,7 @@ class CadastroScreen extends StatelessWidget {
                   height: 16,
                 ),
                 TextFormField(
+                  enabled: !userManager.loading,
                   decoration: const InputDecoration(hintText: 'E-mail'),
                   keyboardType: TextInputType.emailAddress,
                   // ignore: missing_return
@@ -62,6 +66,7 @@ class CadastroScreen extends StatelessWidget {
                   height: 16,
                 ),
                 TextFormField(
+                  enabled: !userManager.loading,
                   decoration: const InputDecoration(hintText: 'Senha'),
                   onSaved: (pass) => user.senha = pass,
                   // ignore: missing_return
@@ -79,6 +84,7 @@ class CadastroScreen extends StatelessWidget {
                   height: 16,
                 ),
                 TextFormField(
+                  enabled: !userManager.loading,
                   decoration: const InputDecoration(hintText: 'Repita a senha'),
                   validator: (pass) {
                     if (pass.isEmpty)
@@ -136,7 +142,10 @@ class CadastroScreen extends StatelessWidget {
                       ),
                     )),
               ],
-            ),
+              );
+              }
+              
+              )
           ),
         ),
       ),
