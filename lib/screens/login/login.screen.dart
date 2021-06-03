@@ -73,7 +73,7 @@ class LoginScreen extends StatelessWidget {
                         validator: (senha) {
                           if (senha.isEmpty || senha.length < 6)
                             // ignore: curly_braces_in_flow_control_structures
-                            return 'Senha inválida';
+                            return 'Senha inválida 1';
                           return null;
                         },
                       ),
