@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       create: (_) => UserManager(),
       lazy: false,
       child: MaterialApp(
-        title: 'Loja de Informatica',
+        title: 'Loja de Informatica 01',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             fontFamily: 'Comfortaa',
