@@ -47,6 +47,7 @@ class CustomDrawerHeader extends StatelessWidget {
                       userManager.isLoggedIn
                           ? 'Sair'
                           : 'Entre ou cadastra-se >',
+                      // ignore: prefer_const_constructors
                       style: TextStyle(
                         color: Colors.black,
                         //color: Theme.of(context).primaryColor,

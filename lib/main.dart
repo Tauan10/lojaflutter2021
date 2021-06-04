@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lojafinal/models/gerenciador_produto.dart';
 import 'package:lojafinal/models/gerenciador_user.dart';
-import 'package:lojafinal/models/produtos.dart';
+
+import 'package:lojafinal/models/product_manager.dart';
 import 'package:lojafinal/screens/base/base_screens.dart';
 import 'package:lojafinal/screens/login/cadastro/cadastro_screen.dart';
 import 'package:lojafinal/screens/login/login.screen.dart';
-import 'package:lojafinal/screens/login/produtos/produto_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -43,10 +42,7 @@ class MyApp extends StatelessWidget {
         return MaterialPageRoute(builder: (_) => LoginScreen());
       case '/signup':
         return MaterialPageRoute(builder: (_) => CadastroScreen());
-      case '/product':
-        return MaterialPageRoute(builder: (_) => ProductScreen(
-          settings.arguments as Product
-        ));
+    
       case '/base':
       default:
         return MaterialPageRoute(builder: (_) => BaseScreen());

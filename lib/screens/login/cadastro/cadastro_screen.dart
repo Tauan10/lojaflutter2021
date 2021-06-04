@@ -133,6 +133,7 @@ class CadastroScreen extends StatelessWidget {
                         }
                       },
               
+                 
                       child: userManager.loading ? CircularProgressIndicator(
                         // ignore: prefer_const_constructors
                         valueColor: AlwaysStoppedAnimation(Colors.white),
